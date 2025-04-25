@@ -16,13 +16,16 @@ public class Field {
         this.state = State.SHIP_NO_HIT;
     }
 
-    public void hit() {
+    public boolean hitAndisHit() {
         if (State.NO_SHIP_NO_HIT == this.state) {
             this.state = State.NO_SHIP_HIT;
+            return false;
         }
         if (State.SHIP_NO_HIT == this.state) {
             this.state = State.SHIP_HIT;
+            return true;
         }
+        return false;
     }
 
     public State getState() {
